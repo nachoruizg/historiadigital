@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Digital: El Origen de Internet y los Virus Informáticos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-slate-900">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="p-2 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-lg shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="shield-alert" class="w-6 h-6 text-slate-900"></i>
+                </div>
+                <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                    Historia Digital
+                </span>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#internet" class="text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="globe" class="w-4 h-4"></i> Origen de Internet
+                </a>
+                <a href="#virus" class="text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="bug" class="w-4 h-4"></i> Virus Informáticos
+                </a>
+                <a href="#tipos" class="text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="layers" class="w-4 h-4"></i> Tipos
+                </a>
+                <a href="#riesgos" class="text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="shield-alert" class="w-4 h-4"></i> Riesgos
+                </a>
+                <a href="#prevencion" class="text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i> Prevención
+                </a>
+            </nav>
+
+            <button onclick="openQrModal()" class="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all shadow-md shadow-cyan-500/20 active:scale-95">
+                <i data-lucide="qr-code" class="w-4 h-4"></i>
+                <span>Generar QR</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-16 lg:py-24 border-b border-slate-800/80 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-6">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i> Guía Educativa e Interactiva
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                El Origen de <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">Internet</span> y los <span class="bg-gradient-to-r from-red-400 via-amber-300 to-rose-500 bg-clip-text text-transparent">Virus Informáticos</span>
+            </h1>
+            <p class="mt-6 text-base sm:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                Explora cómo la evolución de la red global y los desafíos de ciberseguridad han moldeado la era digital. Descubre su origen, los tipos de malware, sus riesgos y cómo prevenir infecciones.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="#internet" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i> Comenzar lectura
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Area -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+
+        <!-- Section 1: Origen de Internet -->
+        <section id="internet" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2.5 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20">
+                    <i data-lucide="globe" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">El Origen de Internet</h2>
+                    <p class="text-sm text-slate-400">De un proyecto militar a la red mundial conectada</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-cyan-500/30 transition-all group">
+                    <div class="text-cyan-400 code-font text-xs font-semibold mb-2">1969 — ARPANET</div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">La Primera Conexión</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Internet nació como <strong>ARPANET</strong>, una red desarrollada por el Departamento de Defensa de EE. UU. Su primer mensaje enviado entre la UCLA y Stanford fue la palabra "LOGIN", aunque el sistema colapsó tras enviar solo las letras "LO".
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-cyan-500/30 transition-all group">
+                    <div class="text-cyan-400 code-font text-xs font-semibold mb-2">1983 — TCP/IP</div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">El Idioma Estándar</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        La adopción del protocolo <strong>TCP/IP</strong> permitió que múltiples redes heterogéneas se comunicaran entre sí de manera universal. Este hito se considera técnicamente el nacimiento oficial de la "Internet".
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 hover:border-cyan-500/30 transition-all group">
+                    <div class="text-cyan-400 code-font text-xs font-semibold mb-2">1991 — World Wide Web</div>
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">La Revolución Global</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        <strong>Tim Berners-Lee</strong> inventó la World Wide Web en el CERN, introduciendo los conceptos de HTML, HTTP y URL. Esto transformó a Internet en una plataforma accesible y masiva para toda la humanidad.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Origen y Causas de los Virus -->
+        <section id="virus" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2.5 bg-red-500/10 text-red-400 rounded-xl border border-red-500/20">
+                    <i data-lucide="bug" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Origen y Causas de los Virus</h2>
+                    <p class="text-sm text-slate-400">Cómo iniciaron las amenazas y por qué se crean</p>
+                </div>
+            </div>
+
+            <!-- Timeline y Causas Grid -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Historia de los Virus -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 space-y-6">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="history" class="w-5 h-5 text-red-400"></i> Primeros Virus Destacados
+                    </h3>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="border-l-2 border-red-500/40 pl-4 py-1">
+                            <span class="text-red-400 font-bold code-font">Creeper (1971):</span>
+                            <p class="text-slate-300 mt-1">El primer programa autorreplicante experimental. Mostraba el mensaje: <em>"I'm the creeper, catch me if you can!"</em>.</p>
+                        </div>
+
+                        <div class="border-l-2 border-red-500/40 pl-4 py-1">
+                            <span class="text-red-400 font-bold code-font">Brain (1986):</span>
+                            <p class="text-slate-300 mt-1">El primer virus informático para PC (MS-DOS). Fue transmitido por disquetes por dos hermanos pakistaníes para proteger su software médico de copias piratas.</p>
+                        </div>
+
+                        <div class="border-l-2 border-red-500/40 pl-4 py-1">
+                            <span class="text-red-400 font-bold code-font">Gusano Morris (1988):</span>
+                            <p class="text-slate-300 mt-1">El primer gran ataque masivo en red que paralizó alrededor del 10% de los ordenadores conectados a la incipiente Internet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Causas y Motivaciones -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-6 space-y-6">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-400"></i> Causas y Motivaciones
+                    </h3>
+
+                    <div class="grid gap-4 text-sm">
+                        <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <div class="font-semibold text-amber-400 flex items-center gap-2">
+                                <i data-lucide="dollar-sign" class="w-4 h-4"></i> Beneficio Económico
+                            </div>
+                            <p class="text-slate-400 text-xs mt-1">Robo de credenciales bancarias, extorsión mediante ransomware y secuestro de recursos informáticos.</p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <div class="font-semibold text-amber-400 flex items-center gap-2">
+                                <i data-lucide="lock" class="w-4 h-4"></i> Espionaje y Sabotaje
+                            </div>
+                            <p class="text-slate-400 text-xs mt-1">Ataques dirigidos a corporaciones o gobiernos para sustraer información confidencial o deshabilitar infraestructuras críticas.</p>
+                        </div>
+
+                        <div class="p-3.5 bg-slate-900/60 rounded-xl border border-slate-800">
+                            <div class="font-semibold text-amber-400 flex items-center gap-2">
+                                <i data-lucide="code" class="w-4 h-4"></i> Experimentación / Hacktivismo
+                            </div>
+                            <p class="text-slate-400 text-xs mt-1">Investigación de vulnerabilidades del sistema o demostración de protestas políticas e ideológicas en el entorno digital.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Tipos de Virus y Malware -->
+        <section id="tipos" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2.5 bg-amber-500/10 text-amber-400 rounded-xl border border-amber-500/20">
+                    <i data-lucide="layers" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Tipos de Virus y Malware</h2>
+                    <p class="text-sm text-slate-400">Las distintas amenazas que rondan el mundo digital</p>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Trojan -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/30 transition-all">
+                    <div class="flex items-center gap-2 font-bold text-amber-400 mb-2">
+                        <i data-lucide="package" class="w-5 h-5"></i> Troyanos (Trojans)
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Se disfrazan de programas legítimos o inofensivos. Una vez ejecutados, abren una "puerta trasera" para dar acceso a atacantes remotos.
+                    </p>
+                </div>
+
+                <!-- Ransomware -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/30 transition-all">
+                    <div class="flex items-center gap-2 font-bold text-amber-400 mb-2">
+                        <i data-lucide="key-round" class="w-5 h-5"></i> Ransomware
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Cifra los archivos o bloquea el acceso al sistema informático, exigiendo un pago (rescate) para devolver el control al usuario.
+                    </p>
+                </div>
+
+                <!-- Worm -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/30 transition-all">
+                    <div class="flex items-center gap-2 font-bold text-amber-400 mb-2">
+                        <i data-lucide="share-2" class="w-5 h-5"></i> Gusanos (Worms)
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Se replican y propagan automáticamente a través de las redes informáticas sin necesidad de la interacción del usuario.
+                    </p>
+                </div>
+
+                <!-- Spyware -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/30 transition-all">
+                    <div class="flex items-center gap-2 font-bold text-amber-400 mb-2">
+                        <i data-lucide="eye" class="w-5 h-5"></i> Spyware / Keyloggers
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Monitorean en secreto la actividad del usuario, registrando pulsaciones de teclado, passwords e información personal.
+                    </p>
+                </div>
+
+                <!-- Adware -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/30 transition-all">
+                    <div class="flex items-center gap-2 font-bold text-amber-400 mb-2">
+                        <i data-lucide="layout-template" class="w-5 h-5"></i> Adware
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Software diseñado para desplegar publicidad no deseada o engañosa de forma masiva en la pantalla del usuario.
+                    </p>
+                </div>
+
+                <!-- Rootkit -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 hover:border-amber-500/30 transition-all">
+                    <div class="flex items-center gap-2 font-bold text-amber-400 mb-2">
+                        <i data-lucide="terminal" class="w-5 h-5"></i> Rootkits
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Diseñados para ocultarse en las capas más profundas del sistema operativo, garantizando acceso persistente sin ser detectados.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Riesgos e Impacto -->
+        <section id="riesgos" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2.5 bg-rose-500/10 text-rose-400 rounded-xl border border-rose-500/20">
+                    <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Riesgos e Impacto</h2>
+                    <p class="text-sm text-slate-400">Consecuencias reales de la infección por malware</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-b from-slate-800/60 to-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-rose-500/10 text-rose-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="database-zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Pérdida de Información</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Destrucción, corrupción o secuestro irrecuperable de archivos personales o empresariales críticos.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-b from-slate-800/60 to-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-rose-500/10 text-rose-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="user-x" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Robo de Identidad</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Extracción de credenciales personales, cuentas bancarias y datos confidenciales para fraudes financieros.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-b from-slate-800/60 to-slate-900/60 border border-slate-800 rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 bg-rose-500/10 text-rose-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Degradación de Equipos</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Lentitud severa, fallos de hardware por sobreuso de recursos y pérdida total del control del sistema.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Prevención -->
+        <section id="prevencion" class="scroll-mt-24">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl border border-emerald-500/20">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Medidas de Prevención</h2>
+                    <p class="text-sm text-slate-400">Buenas prácticas para mantenerte protegido</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/30 border border-slate-800 rounded-2xl p-6 lg:p-8">
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="flex gap-4">
+                        <div class="text-emerald-400 mt-1">
+                            <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-base">Actualizaciones Continuas</h4>
+                            <p class="text-slate-400 text-sm mt-1">Mantén el sistema operativo y programas al día para parchear vulnerabilidades conocidas.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="text-emerald-400 mt-1">
+                            <i data-lucide="shield" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-base">Software Antivirus y Firewall</h4>
+                            <p class="text-slate-400 text-sm mt-1">Utiliza soluciones de seguridad reputadas y mantén activo el cortafuegos.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="text-emerald-400 mt-1">
+                            <i data-lucide="mouse-pointer-click" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-base">Navegación Cauta</h4>
+                            <p class="text-slate-400 text-sm mt-1">No des descarga a archivos ni hagas clic en enlaces sospechosos o correos no solicitados.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="text-emerald-400 mt-1">
+                            <i data-lucide="hard-drive" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white text-base">Copias de Seguridad (Backups)</h4>
+                            <p class="text-slate-400 text-sm mt-1">Realiza respaldos periódicos de tus datos más valiosos en discos externos o la nube.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950/50 py-8 text-center text-slate-500 text-sm">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p>© 2026 Guía Educativa de Historia Digital.</p>
+            <p class="text-xs text-slate-600 font-mono">Generado para la divulgación sobre la historia del internet y ciberseguridad.</p>
+        </div>
+    </footer>
+
+    <!-- QR Modal -->
+    <div id="qrModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl relative transform scale-95 transition-all duration-300" id="qrModalCard">
+            <button onclick="closeQrModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="w-12 h-12 bg-cyan-500/10 text-cyan-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i data-lucide="qr-code" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-1">Acceso Móvil QR</h3>
+            <p class="text-slate-400 text-xs mb-6">Escanea este código desde tu teléfono inteligente para acceder inmediatamente a esta información.</p>
+
+            <div class="bg-white p-4 rounded-xl inline-block mb-4 shadow-lg">
+                <div id="qrcode"></div>
+            </div>
+
+            <p id="currentUrlText" class="text-xs font-mono text-cyan-400 break-all mb-4"></p>
+
+            <button onclick="copyCurrentUrl()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 py-2.5 rounded-xl text-xs font-semibold border border-slate-700 transition-colors flex items-center justify-center gap-2">
+                <i data-lucide="copy" class="w-4 h-4"></i> Copiar Enlace Directo
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-cyan-500 text-slate-950 px-4 py-2.5 rounded-xl shadow-xl text-sm font-semibold flex items-center gap-2 transition-all opacity-0 translate-y-4 pointer-events-none z-50">
+        <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+        <span id="toastMsg">Enlace copiado</span>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        let qrcodeInstance = null;
+
+        function openQrModal() {
+            const currentUrl = window.location.href;
+            document.getElementById('currentUrlText').innerText = currentUrl;
+
+            const qrContainer = document.getElementById('qrcode');
+            qrContainer.innerHTML = "";
+
+            qrcodeInstance = new QRCode(qrContainer, {
+                text: currentUrl,
+                width: 180,
+                height: 180,
+                colorDark : "#0f172a",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            const modal = document.getElementById('qrModal');
+            const modalCard = document.getElementById('qrModalCard');
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalCard.classList.remove('scale-95');
+            modalCard.classList.add('scale-100');
+        }
+
+        function closeQrModal() {
+            const modal = document.getElementById('qrModal');
+            const modalCard = document.getElementById('qrModalCard');
+
+            modalCard.classList.remove('scale-100');
+            modalCard.classList.add('scale-95');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function copyCurrentUrl() {
+            const currentUrl = window.location.href;
+            const textarea = document.createElement('textarea');
+            textarea.value = currentUrl;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showToast("¡Enlace copiado al portapapeles!");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = msg;
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
